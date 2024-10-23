@@ -1,0 +1,4 @@
+bookname: The fire and the moth
+author: Kaushik Joshi
+
+end of file
