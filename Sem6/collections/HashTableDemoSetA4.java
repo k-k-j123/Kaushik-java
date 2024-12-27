@@ -1,3 +1,4 @@
+import java.util.Map.Entry;
 import java.util.*;
 class HashTableDemoSetA4{
 	public static void main(String args[]){
@@ -18,7 +19,7 @@ class HashTableDemoSetA4{
 		System.out.println("Name 	Contact Number");
 		while(i.hasNext()){
 			Map.Entry me=(Entry) i.next();
-			System.out.println(""+me.getKey()+""+me.getValue());
+			System.out.println(""+me.getKey()+"\t"+me.getValue());
 		}
 	}
 }
