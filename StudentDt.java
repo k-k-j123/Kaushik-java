@@ -29,6 +29,7 @@ class StudentDt{
 		sd.per=sp.calcper(m);
 		StudentInfo si=new StudentInfo();
 		si.display_student(sd.roll,sd.name,sd.cname,sd.per);
+		sc.close();
 	}
 }
 

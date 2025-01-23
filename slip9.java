@@ -50,6 +50,7 @@ public class slip9
 			c.setAMPM();
 		else
 			System.out.println("Invalid Time");
+		s.close();
 	}
 }
 

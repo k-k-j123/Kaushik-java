@@ -84,5 +84,6 @@ public class Matrix_ops{
 			}
 
 		}while(choice!=5);
+		sc.close();
 	}
 }

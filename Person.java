@@ -35,6 +35,7 @@ class Person{
 		String l=s.next();
 		Person p=new Person(f,m,l);
 		System.out.println(p);
+		s.close();
 	}
 }
 

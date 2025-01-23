@@ -1,4 +1,0 @@
-hello my name is kaushik joshi
-I am a student
-
-End of file

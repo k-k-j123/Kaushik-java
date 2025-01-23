@@ -1,7 +1,7 @@
 import java.util.*;
 class reverse_arr{
 	public static void main(String[] args){
-		int n,res,temp,i,j=0;
+		int n,temp,i,j=0;
 		Scanner s=new Scanner(System.in);
 		System.out.print("enter the number of elements in the array");
 		n=s.nextInt();
@@ -27,5 +27,6 @@ class reverse_arr{
 		for(int value:array){
 			System.out.println(value);
 		}
+		s.close();
 	}
 }

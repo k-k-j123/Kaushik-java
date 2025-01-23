@@ -32,5 +32,6 @@ public class ArrObj {
         for (int i = 0; i < n; i++) {
             System.out.println(objarr[i]);
         }
+        sc.close();
     }
 }
