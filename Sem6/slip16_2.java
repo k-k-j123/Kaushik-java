@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 import java.util.*;
 import java.util.Map.Entry;
 public class slip16_2 implements ActionListener{
