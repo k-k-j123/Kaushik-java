@@ -1,6 +1,6 @@
 import java.sql.*;
 import java.io.*;
-class DBmetaData{
+class slip13_1{
 	public static void main(String args[]){
 		try{
 			Class.forName("org.postgresql.Driver");

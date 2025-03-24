@@ -12,7 +12,7 @@ class Print extends Thread{
         }
     }
 }
-public class Ass2SetA1 {
+public class slip8_1 {
     public static void main(String args[]) throws Exception{
         Print t1=new Print(10,"COVID19");
         Print t2=new Print(20,"LOCKDOWN2020");

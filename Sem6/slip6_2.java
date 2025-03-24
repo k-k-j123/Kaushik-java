@@ -1,10 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
-public class SignalTimer extends JFrame implements Runnable{
+public class slip6_2 extends JFrame implements Runnable{
     Thread t=null;
     int time;
     int cnt;
-    public SignalTimer(){
+    public slip6_2(){
         setTitle("Signal Timer");
         setSize(200,250);
 
@@ -57,6 +57,6 @@ public class SignalTimer extends JFrame implements Runnable{
     }
 
     public static void main(String args[]){
-        new SignalTimer();
+        new slip6_2();
     }
 }

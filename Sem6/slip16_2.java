@@ -1,88 +1,52 @@
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.util.*;
-import java.util.Map.Entry;
-public class slip16_2 implements ActionListener{
-	Hashtable hm=new Hashtable();
-	JTextArea ta;
-	JTextField t1,t2,t3;
-	JButton b1,b2,b3;
-	JLabel l1,l2,l3;
-	JPanel p1,p2;
+import java.sql.*;
+import java.util.Scanner;
 
-	slip16_2(){
-		JFrame f=new JFrame("slip16_2");
-		f.setLayout(new FlowLayout());
-		ta=new JTextArea(22,20);
-		l1=new JLabel("cityname");
-		l2=new JLabel("code");
-		t1=new JTextField(20);
-		t2=new JTextField(10);
-		b1=new JButton("add");
-		p1=new JPanel(new GridLayout(3,2));
-		p1.add(l1);p1.add(l2);
-		p1.add(t1);p1.add(t2);
-		p1.add(b1);
-		l3=new JLabel("CityName");
-		t3=new JTextField(10);
-		b2=new JButton("search");
-		b3=new JButton("Remove");
-		p2=new JPanel(new GridLayout(1,3));
-		p2.add(t3);p2.add(b2);p2.add(b3);
+public class slip16_2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-		b1.addActionListener(this);
-		b2.addActionListener(this);
-		b3.addActionListener(this);
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection connection = DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/testdb", "postgres", "123");
 
-		f.add(ta);
-		f.add(p1);
-		f.add(l3);
-		f.add(p2);
+            System.out.println("Enter how many records you want to insert:");
+            int n = scanner.nextInt();
 
-		f.setSize(695,500);
-		f.setVisible(true);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
+            for (int i = 0; i < n; i++) {
+                System.out.println("Enter the Teacher " + (i + 1) + " details:");
 
-	public void actionPerformed(ActionEvent ae){
-		if(ae.getSource()==b1){
-			String city=t1.getText();
-			String code=t2.getText();
-			hm.put(city,code);
-			this.show(hm);
-		}
+                System.out.println("Enter Teacher ID:");
+                int id = scanner.nextInt();
 
-		if(ae.getSource()==b2){
-			String SearchCity=t3.getText();
-			Set s= hm.entrySet();
-			Iterator i=s.iterator();
-			while(i.hasNext()){
-				Map.Entry me=(Entry) i.next();
-				if(SearchCity.equalsIgnoreCase((String)me.getKey())){
-					ta.setText((String)me.getValue());
-				}
-			}
-		}
+                System.out.println("Enter Teacher Name:");
+                String name = scanner.next();
 
-		if(ae.getSource()==b3){
-			String removeCity=t3.getText();
-			hm.remove(removeCity);
-			ta.setText(" ");
-		}
-	}
+                System.out.println("Enter Teacher Subject:");
+                String subject = scanner.next();
 
-	public void show(Hashtable hm){
-		ta.setText("");
-		Set s=hm.entrySet();
-		Iterator i=s.iterator();
-		while(i.hasNext()){
-			Map.Entry me=(Entry) i.next();
-			ta.append(me.getKey()+"		"+me.getValue()+"\n");
-		}
-	}
+                PreparedStatement ps = connection.prepareStatement("INSERT INTO teacher VALUES (?, ?, ?)");
+                ps.setInt(1, id);
+                ps.setString(2, name);
+                ps.setString(3, subject);
+                ps.executeUpdate();
+            }
 
-	public static void main(String args[]){
-		new slip16_2();
-	}
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM teacher WHERE subject = 'JAVA'");
+
+            System.out.println("Teacher Number\tTeacher Name\tSubject");
+            while (rs.next()) {
+                System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3));
+            }
+
+            rs.close();
+            statement.close();
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
 }

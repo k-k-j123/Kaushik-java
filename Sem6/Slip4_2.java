@@ -1,7 +1,7 @@
 import java.util.*;
 class Slip4_2{
 	public static void main(String args[]){ 
-		Hashtable ht=new Hashtable();
+		Hashtable<String,Integer> ht=new Hashtable<>();
 		int std_code;
 		String city_name=null;
 		Scanner sc=new Scanner(System.in);
@@ -25,6 +25,7 @@ class Slip4_2{
 		String removeCity=sc.next();
 		ht.remove(removeCity);
 		System.out.println("After Removing City " + removeCity+" data is "+ht);
+		sc.close();
 	}
 }
 

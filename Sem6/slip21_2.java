@@ -72,7 +72,7 @@ class Consumer implements Runnable {
     }
 }
 
-class ProducerConsumer {
+class slip21_2 {
     public static void main(String args[]) {
         Q q = new Q();
         new Producer(q);

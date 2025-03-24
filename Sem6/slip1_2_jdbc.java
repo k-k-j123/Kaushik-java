@@ -59,7 +59,7 @@ class slip1_2_jdbc extends JFrame implements ActionListener {
             ps.setString(2, name);
             ps.setString(3, desg);
             ps.setInt(4, sal);
-            int i = ps.executeUpdate();
+            ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Record Inserted Successfully");
         } catch (Exception e) {
             System.out.println(e);

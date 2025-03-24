@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-class SetB1collection{
+class slip17_1{
 	public static void main(String args[]) throws IOException{
 		int n;
 		HashSet hs=new HashSet();
